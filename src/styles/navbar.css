@@ -1,0 +1,28 @@
+nav{
+    /* background-color: rgb(14, 2, 56); */
+    justify-content: center;
+    display:flex;
+    padding: 15px;
+}
+.links{
+    list-style: none;
+    
+}
+.links li{
+    display: inline-block;
+    margin-left: 80px;
+    font-family: 'Oxanium';
+    text-transform:uppercase;
+    font-weight: semi-bold;
+    /* letter-spacing: 1.5px; */
+    
+    
+}
+.links li:hover{
+border-bottom: 1px solid white;
+transition: all 0.3s ease-in;
+}
+.links a{
+text-decoration: none;
+color: white;
+}
