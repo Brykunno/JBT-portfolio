@@ -1,0 +1,15 @@
+.socials{
+    margin: 20px;
+}
+
+.logos {
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logos:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}

@@ -1,19 +1,23 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import LandingPage from './LandingPage'
+import LandingPage from './landing_page/LandingPage'
 import "../styles/layout.css"
+import About from './about/About'
+
 function Home() {
   return (
     <div >
-      <section className='border-1 border-blue-300 min-h-lvh landing-page'>
+
+      <section className='min-h-lvh landing-page'>
 
       <LandingPage/>
 
       </section>
 
       <section className='border-1 border-blue-300 min-h-lvh ' id='about'>
- <Navbar />
+ {/* <Navbar /> */}
  
+ <About/>
 
       </section>
     
