@@ -53,8 +53,13 @@ export const StickyScroll = ({
   return (
     <motion.div
   
-      className="relative flex gap-10 h-[30rem] max-w-7xl justify-center space-x-10 overflow-y-auto rounded-md p-10 bg-background scrollbar-hide "
+      className="relative flex gap-10 h-[30rem] max-w-7xl justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-hide "
       ref={ref}
+
+        initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
     >
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
@@ -69,9 +74,30 @@ export const StickyScroll = ({
                 }}
                 className="text-2xl font-bold "
               >
+                     <Card 
+        className={cn(
+          " mb-3  rounded-lg lg:hidden hover:shadow-lg group  p-0  cursor-pointer  hover:scale-[1.05] transition-all duration-300",
+          contentClassName,
+        )}>
+ {/* <Card className='group relative h-full w-full p-0 overflow-hidden cursor-pointer '> */}
+  <CardContent className='p-0 h-full w-full'>
+    { content[activeCard].content?(
+<img src={`${content[activeCard].content ?? null}`} alt="" className='rounded-xl h-full w-full' />
+    ) : 
+    (<div>NO IMAGE</div>)
+    }
+   
+      <div className="absolute bottom-0 left-0 w-full h-1/3 
+              bg-gradient-to-t from-accent/70 to-transparent
+              opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                <Button className="cursor-pointer">Preview</Button>
+                  </div>
+  </CardContent>
+</Card>
+
                 {item.title}
               </motion.h2>
-              <motion.p
+              <motion.div
                 initial={{
                   opacity: 0,
                 }}
@@ -89,7 +115,7 @@ export const StickyScroll = ({
                 
                 {item.link||""}
       
-              </motion.p>
+              </motion.div>
             </div>
           ))}
           <div className="h-40" />

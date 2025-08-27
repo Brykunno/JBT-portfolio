@@ -4,12 +4,26 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 import Hero from './pages/Hero'
 import NavigationBar from './components/navigation-bar'
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import About from './pages/About'
 import { ArrowUp } from 'lucide-react'
 import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import { BeamsBackground } from '@/components/ui/beams-background'
+import { motion } from "motion/react";
+import { AnimatePresence } from 'motion/react'
+import { Spotlight } from './components/ui/spotlight-new'
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
+
+   const [scrolled,setScrolled] =useState(false);
+  
+    useEffect(()=>{
+      const onScroll = () => setScrolled(window.scrollY > 50);
+      window.addEventListener("scroll", onScroll);
+    },[])
+  
 
   interface Sections{
     id:string,
@@ -31,6 +45,10 @@ page:<About/>
   id:"projects",
 page:<Projects/>
  },
+  {
+  id:"contact",
+page:<Contact/>
+ },
 
 
   ]
@@ -38,8 +56,10 @@ page:<Projects/>
 
   return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          
+          {/* <BeamsBackground className='fixed top-0 z-[-10]'></BeamsBackground> */}
 <div>
-
+<Spotlight></Spotlight>
   <NavigationBar/>
 
   {
@@ -52,15 +72,24 @@ page:<Projects/>
     })
   }
 
-
-
-<div className='bg-chart-4 fixed right-10 bottom-10 rounded-[50%] '>
+<AnimatePresence>
+  {scrolled? 
+<motion.div key="box" 
+initial={{ opacity: 0, y:80 }}
+            animate={{ opacity: 1, y:0 }}
+            transition={{
+                duration: 0.4,
+                
+            }}
+exit={{ opacity: 0 }} className={`${scrolled?"show":"hidden"} bg-chart-4 fixed right-10 bottom-10 rounded-[50%] transition-all duration-300 ease-in `} >
   <a href="#hero" ><ArrowUp size={50}/></a>
-</div>
+</motion.div> : null}
+</AnimatePresence>
 
 
 
 </div>
+ <Toaster/>
     </ThemeProvider>
   )
 }

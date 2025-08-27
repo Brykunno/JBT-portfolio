@@ -19,6 +19,8 @@ function NavigationBar() {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
   },[])
+
+
   interface NavItem{
     name:string,
     link:string
@@ -33,10 +35,10 @@ function NavigationBar() {
       name: "Projects",
       link: "#projects"
     },
-    {
-      name: "Certificate",
-      link: "#about"
-    },
+    // {
+    //   name: "Certificate",
+    //   link: "#about"
+    // },
     {
       name: "Contact",
       link: "#contact"

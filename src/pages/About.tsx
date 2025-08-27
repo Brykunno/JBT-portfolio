@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Card,
   CardAction,
@@ -9,11 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import { animate,inView } from 'motion';
+
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { motion } from "framer-motion";
 
 function About() {
 
@@ -86,17 +89,35 @@ function About() {
     },
   ]
 
-
-
   return (
+    
     <div className='text-center max-w-7xl min-w-2xs '>
+      <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+>
       <div className=' max-w-dvh  px-5 mx-auto mb-3'>
-  <h1 className='text-2xl font-bold '>
-          About Me
+  <h1 className='text-4xl font-bold my-5'>
+          ABOUT ME
       </h1>
-      <p>
+      {/* <p className='text-base'>
         Aspiring Junior Web Developer with a strong foundation in full-stack development using modern technologies such as PHP, Laravel, React.js, and Django REST Framework. Proficient in building scalable RESTful APIs, designing responsive UIs, and implementing secure authentication systems using JWT. Eager to apply clean code principles, optimize performance, and contribute to collaborative agile development environments that prioritize maintainability and user experience.
-      </p>
+      </p> */}
+
+      <div className=" gap-8 mt-5 w-full ">
+        <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-none shadow-lg">
+          <CardHeader>
+            <CardTitle className='text-lg'>Hey, I'm John Bryan</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Aspiring Junior Web Developer with a strong foundation in full-stack development using modern technologies such as PHP, Laravel, React.js, and Django REST Framework. Proficient in building scalable RESTful APIs, designing responsive UIs, and implementing secure authentication systems using JWT. Eager to apply clean code principles, optimize performance, and contribute to collaborative agile development environments that prioritize maintainability and user experience.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
       </div>
     
      
@@ -137,6 +158,8 @@ function About() {
     </div>
 
 
+  {/* content */}
+</motion.div>
 
     </div>
   )

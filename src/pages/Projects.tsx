@@ -7,6 +7,9 @@ function Projects() {
 
   return (
     <div className=' '>
+      <h1 className='text-4xl font-bold my-5 text-center'>
+          MY PROJECTS
+      </h1>
       <StickyScroll content={[
         
         {title: "Quexgen",
