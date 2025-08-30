@@ -17,6 +17,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { motion } from "framer-motion";
+import OrbitingSkills from '@/components/ui/orbiting-skills';
 
 function About() {
 
@@ -158,8 +159,8 @@ function About() {
     </div>
 
 
-  {/* content */}
 </motion.div>
+
 
     </div>
   )

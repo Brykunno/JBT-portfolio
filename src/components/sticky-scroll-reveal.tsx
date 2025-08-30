@@ -7,6 +7,16 @@ import { Card,CardContent } from '@/components/ui/card'
 import { div } from "motion/react-client";
 import { Button } from "./ui/button";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogContentFull,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 
 export const StickyScroll = ({
   content,
@@ -18,6 +28,8 @@ export const StickyScroll = ({
     tags?:React.ReactNode | any;
     link?:React.ReactNode | any;
     content?: React.ReactNode | any;
+    deployed?:boolean;
+    preview?:React.ReactNode | any;
   }[];
   contentClassName?: string;
 }) => {
@@ -90,7 +102,17 @@ export const StickyScroll = ({
       <div className="absolute bottom-0 left-0 w-full h-1/3 
               bg-gradient-to-t from-accent/70 to-transparent
               opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
-                <Button className="cursor-pointer">Preview</Button>
+               <Dialog>
+  <DialogTrigger><Button className="cursor-pointer">Preview</Button></DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        <img src="/src/assets/test.png"/>
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
                   </div>
   </CardContent>
 </Card>
@@ -124,7 +146,7 @@ export const StickyScroll = ({
 
         <Card 
         className={cn(
-          "sticky top-10 hidden h-70 w-100 overflow-hidden rounded-lg lg:block hover:shadow-lg group  p-0  cursor-pointer  hover:scale-[1.05] transition-all duration-300",
+          "sticky top-10 hidden h-70 w-xl overflow-hidden rounded-lg lg:block hover:shadow-lg group  p-0  cursor-pointer  hover:scale-[1.05] transition-all duration-300",
           contentClassName,
         )}>
  {/* <Card className='group relative h-full w-full p-0 overflow-hidden cursor-pointer '> */}
@@ -138,7 +160,45 @@ export const StickyScroll = ({
       <div className="absolute bottom-0 left-0 w-full h-1/3 
               bg-gradient-to-t from-accent/70 to-transparent
               opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
-                <Button className="cursor-pointer">Preview</Button>
+                
+
+                {
+                  content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer">Preview</Button></a></>):(<><Dialog>
+  <DialogTrigger>
+    <Button className="cursor-pointer">Preview</Button>
+  </DialogTrigger>
+  <DialogContentFull >
+    <DialogHeader className="p-5">
+      <DialogTitle className="text-center text-3xl">{content[activeCard].title}</DialogTitle>
+      <DialogDescription className="grid grid-cols-3">
+     {
+      
+  content[activeCard].preview?.map((data: any, index: number) => {
+    return (
+      <div
+        key={index}
+        className="relative m-3 hover:shadow-lg group cursor-pointer hover:scale-[1.05] transition-all duration-300"
+      >
+        <a href={data.image} target="_blank" rel="noopener noreferrer">
+          <img src={data.image} alt={data.description} className="w-full h-auto object-cover" />
+
+          <div className="absolute inset-0  bg-gradient-to-t from-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+            <span className="font-bold text-2xl text-white text-center">
+              {data.description}
+            </span>
+          </div>
+        </a>
+      </div>
+    )
+  })
+}
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContentFull>
+</Dialog></>)
+                }
+
+                
                   </div>
   </CardContent>
 </Card>
