@@ -1,10 +1,9 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Card,CardContent } from '@/components/ui/card'
-import { div } from "motion/react-client";
 import { Button } from "./ui/button";
 import {
   Carousel,
@@ -16,7 +15,6 @@ import {
 
 import {
   Dialog,
-  DialogContent,
   DialogContentFull,
   DialogDescription,
   DialogHeader,

@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-import { animate,inView } from 'motion';
 
 import {
   Tooltip,
@@ -17,7 +16,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { motion } from "framer-motion";
-import OrbitingSkills from '@/components/ui/orbiting-skills';
 
 function About() {
 

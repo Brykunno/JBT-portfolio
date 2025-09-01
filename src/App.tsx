@@ -9,7 +9,7 @@ import About from './pages/About'
 import { ArrowUp } from 'lucide-react'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
-import { BeamsBackground } from '@/components/ui/beams-background'
+
 import { motion } from "motion/react";
 import { AnimatePresence } from 'motion/react'
 import { Spotlight } from './components/ui/spotlight-new'
@@ -57,7 +57,7 @@ page:<Contact/>
   return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
           
-          {/* <BeamsBackground className='fixed top-0 z-[-10]'></BeamsBackground> */}
+   
 <div>
 <Spotlight></Spotlight>
   <NavigationBar/>
