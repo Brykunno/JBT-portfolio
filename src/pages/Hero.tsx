@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { ArrowDown, Download } from 'lucide-react'
-import React from 'react'
 import Typewriter from "typewriter-effect"
 
 function Hero() {
