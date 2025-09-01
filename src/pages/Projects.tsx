@@ -1,7 +1,14 @@
 import { StickyScroll } from '@/components/sticky-scroll-reveal'
 import React from 'react'
 
-
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 function Projects() {
 
@@ -126,6 +133,31 @@ function Projects() {
       image:"/src/assets/facultyscheduling/declined-appointments.png",
       description:"Admin Dashboard"
     },
+    {
+      image:"/src/assets/facultyscheduling/admin-dashboard.png",
+      description:"Admin Dashboard"
+    },
+    {
+      image:"/src/assets/facultyscheduling/faculty.png",
+      description:"Admin Dashboard"
+    },
+    {
+      image:"/src/assets/facultyscheduling/users.png",
+      description:"Admin Dashboard"
+    },
+    {
+      image:"/src/assets/facultyscheduling/user-appointments.png",
+      description:"Admin Dashboard"
+    },
+    {
+      image:"/src/assets/facultyscheduling/user-schedules.png",
+      description:"Admin Dashboard"
+    },
+    {
+      image:"/src/assets/facultyscheduling/archives.png",
+      description:"Admin Dashboard"
+    },
+    
    
 
   ]
@@ -191,7 +223,6 @@ function Projects() {
           MY PROJECTS
       </h1>
       <StickyScroll content={projects}/>
-
     </div>
   )
 }

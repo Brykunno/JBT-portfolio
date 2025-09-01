@@ -6,6 +6,13 @@ import { cn } from "@/lib/utils";
 import { Card,CardContent } from '@/components/ui/card'
 import { div } from "motion/react-client";
 import { Button } from "./ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 import {
   Dialog,
@@ -102,17 +109,43 @@ export const StickyScroll = ({
       <div className="absolute bottom-0 left-0 w-full h-1/3 
               bg-gradient-to-t from-accent/70 to-transparent
               opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
-               <Dialog>
-  <DialogTrigger><Button className="cursor-pointer">Preview</Button></DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
-      <DialogDescription>
-        <img src="/src/assets/test.png"/>
+              
+                {
+                  content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer">Preview</Button></a></>):(<><Dialog>
+  <DialogTrigger>
+    <Button className="cursor-pointer">Preview</Button>
+  </DialogTrigger>
+  <DialogContentFull >
+    <DialogHeader className="p-5">
+      <DialogTitle className="text-center text-3xl">{content[activeCard].title}</DialogTitle>
+      <DialogDescription className="grid grid-cols-1">
+     {
+      
+  content[activeCard].preview?.map((data: any, index: number) => {
+    return (
+      <div
+        key={index}
+        className="relative m-3 hover:shadow-lg group cursor-pointer hover:scale-[1.05] transition-all duration-300"
+      >
+        <a href={data.image} target="_blank" rel="noopener noreferrer">
+          <img src={data.image} alt={data.description} className="w-full h-auto object-cover" />
+
+          <div className="absolute inset-0  bg-gradient-to-t from-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+            <span className="font-bold text-2xl text-white text-center">
+              {data.description}
+            </span>
+          </div>
+        </a>
+      </div>
+    )
+  })
+}
+
       </DialogDescription>
     </DialogHeader>
-  </DialogContent>
-</Dialog>
+  </DialogContentFull>
+</Dialog></>)
+                }
                   </div>
   </CardContent>
 </Card>
@@ -170,8 +203,8 @@ export const StickyScroll = ({
   <DialogContentFull >
     <DialogHeader className="p-5">
       <DialogTitle className="text-center text-3xl">{content[activeCard].title}</DialogTitle>
-      <DialogDescription className="grid grid-cols-3">
-     {
+      <DialogDescription className="grid grid-cols-1">
+     {/* {
       
   content[activeCard].preview?.map((data: any, index: number) => {
     return (
@@ -191,15 +224,42 @@ export const StickyScroll = ({
       </div>
     )
   })
+} */}
+<div className="px-12"> 
+<Carousel className="w-full max-full">
+      <CarouselContent>
+        {
+      
+  content[activeCard].preview?.map((data: any, index: number) => {
+    return (
+      <CarouselItem
+        key={index}
+        className="relative m-3 hover:shadow-lg group cursor-pointer hover:scale-[1.05] transition-all duration-300"
+      >
+        <a href={data.image} target="_blank" rel="noopener noreferrer">
+          <img src={data.image} alt={data.description} className="w-full h-auto object-cover" />
+
+          <div className="absolute inset-0  bg-gradient-to-t from-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+            <span className="font-bold text-2xl text-white text-center">
+              {data.description}
+            </span>
+          </div>
+        </a>
+      </CarouselItem>
+    )
+  })
 }
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+    </div>
       </DialogDescription>
     </DialogHeader>
   </DialogContentFull>
 </Dialog></>)
                 }
-
-                
-                  </div>
+</div>
   </CardContent>
 </Card>
 
