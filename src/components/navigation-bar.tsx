@@ -1,13 +1,10 @@
 import {useState,useEffect} from 'react'
 import { ModeToggle } from './mode-toggle'
 import { Menu } from 'lucide-react'
-import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"  
 
