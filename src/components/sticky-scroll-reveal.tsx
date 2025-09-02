@@ -71,7 +71,7 @@ export const StickyScroll = ({
   return (
     <motion.div
   
-      className="relative flex gap-10 h-[30rem] max-w-screen justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-hide ms-12"
+      className="relative flex gap-10 h-[30rem] max-w-screen justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-hide ps-22"
       ref={ref}
 
         initial={{ opacity: 0, y: 20 }}
