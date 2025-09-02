@@ -113,8 +113,10 @@ export const StickyScroll = ({
                   </div>
   </CardContent>
 </Card>
-
-                {item.title} {
+<span className="text-xl md:text-3xl me-2">{item.title}</span>
+                
+                
+                 {
                   content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer" variant={"outline"} size={"sm"}><View/></Button></a></>):(<><Dialog>
   <DialogTrigger>
     <Button className="cursor-pointer" variant={"outline"} size={"sm"}><View/></Button>
