@@ -1,12 +1,14 @@
 import {useState,useEffect} from 'react'
 import { ModeToggle } from './mode-toggle'
 import { Menu } from 'lucide-react'
+import { Button } from "@/components/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"  
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
 
 function NavigationBar() {
 
@@ -52,9 +54,9 @@ function NavigationBar() {
      </div>
 
 <div className=' flex justify-end md:hidden'>
-<DropdownMenu >
+{/* <DropdownMenu >
   <DropdownMenuTrigger className='cursor-pointer ' ><Menu/></DropdownMenuTrigger>
-  <DropdownMenuContent className='w-lvh'>
+  <DropdownMenuContent className='w-lvh '>
   
     {
           navItem.map((item)=>{
@@ -68,7 +70,40 @@ function NavigationBar() {
         }
  
   </DropdownMenuContent>
-</DropdownMenu>
+</DropdownMenu> */}
+
+<Drawer direction="right">
+        <DrawerTrigger asChild>
+          <div className='cursor-pointer flex justify-center items-center'><Menu/></div>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="h-full w-full ">
+           
+            <div className="p-4">
+               {
+          navItem.map((item)=>{
+            return(
+              <div className='flex py-2 ps-3 hover:bg-accent'>
+
+            
+              <DrawerClose asChild key={item.name}>
+       <a href={item.link}  >{item.name.toLocaleUpperCase()}</a>
+        </DrawerClose>
+          </div>
+       
+            )
+          })
+        }
+ 
+            </div>
+            <DrawerFooter>
+              <DrawerClose asChild>
+                <Button>Close</Button>
+              </DrawerClose>
+            </DrawerFooter>
+          </div>
+        </DrawerContent>
+      </Drawer>
 </div>
 
       <ul className='hidden md:flex gap-10 flex-1 justify-center text-chart-2 ms-[-15%] '>

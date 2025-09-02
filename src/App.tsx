@@ -59,12 +59,12 @@ page:<Contact/>
       <div className="min-h-screen max-w-screen flex flex-col bg-background">
         <Spotlight />
         <NavigationBar />
-        <main className="flex-1 w-full flex flex-col gap-8 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto max-w-screen">
+        <main className="flex-1 w-full flex flex-col gap-8 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto ">
           {sections.map((item) => (
             <section
               key={item.id}
               id={item.id}
-              className="flex flex-col items-center justify-center min-h-[80vh] py-8 sm:py-12 md:py-16 max-w-screen"
+              className="flex flex-col items-center justify-center min-h-[80vh] py-8 sm:py-12 md:py-16 "
             >
               {item.page}
             </section>

@@ -37,12 +37,14 @@ function Contact() {
   }
 
   return (
+    <div className="px-3">
+  
     <Card>
       <CardContent>
         <form ref={formRef} onSubmit={submitEmail}>
           <div className="mb-3">
-            <h1 className="text-3xl font-bold">Contact Me</h1>
-            <p>Please fill in the form below to get in touch.</p>
+            <h1 className="text-2xl md:text-3xl font-bold">Contact Me</h1>
+            <p className="text-sm md:text-base">Please fill in the form below to get in touch.</p>
           </div>
 
           <div className="mb-3">
@@ -72,6 +74,8 @@ function Contact() {
     
       </CardContent>
     </Card>
+        
+    </div>
   );
 }
 
