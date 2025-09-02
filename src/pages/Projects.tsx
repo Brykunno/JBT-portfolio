@@ -212,8 +212,11 @@ function Projects() {
       <h1 className='text-4xl font-bold mb-5 text-center'>
           MY PROJECTS
       </h1>
+      <div className='max-w-screen'>
+
+
       <StickyScroll content={projects}/>
-      
+            </div>
     </div>
   )
 }

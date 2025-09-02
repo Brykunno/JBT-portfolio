@@ -98,9 +98,6 @@ function About() {
   <h1 className='text-4xl font-bold my-5'>
           ABOUT ME
       </h1>
-      {/* <p className='text-base'>
-        Aspiring Junior Web Developer with a strong foundation in full-stack development using modern technologies such as PHP, Laravel, React.js, and Django REST Framework. Proficient in building scalable RESTful APIs, designing responsive UIs, and implementing secure authentication systems using JWT. Eager to apply clean code principles, optimize performance, and contribute to collaborative agile development environments that prioritize maintainability and user experience.
-      </p> */}
 
       <div className=" gap-8 mt-5 w-full ">
         <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-none shadow-lg">
