@@ -1,0 +1,15 @@
+<div style="color:#111">
+  <?xml version="1.0" encoding="UTF-8"?>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="320" height="80">
+    <style>
+      .logo{font-family:'JetBrains Mono','Fira Code',Consolas,monospace;font-weight:800;letter-spacing:2px;fill:currentColor}
+    </style>
+    <g>
+      <text x="40" y="135" class="logo">{</text>
+      <text x="85" y="135" class="logo">&lt;</text>
+      <text x="145" y="135" class="logo">JBT</text>
+      <text x="300" y="135" class="logo"> /&gt;</text>
+      <text x="415" y="135" class="logo">}</text>
+    </g>
+  </svg>
+</div>
