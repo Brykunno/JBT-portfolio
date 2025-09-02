@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Card,CardContent } from '@/components/ui/card'
 import { Button } from "./ui/button";
+import { View } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -70,7 +71,7 @@ export const StickyScroll = ({
   return (
     <motion.div
   
-      className="relative flex gap-10 h-[30rem] max-w-7xl justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-hide"
+      className="relative flex gap-10 h-[30rem] max-w-screen justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-hide ms-12"
       ref={ref}
 
         initial={{ opacity: 0, y: 20 }}
@@ -78,7 +79,7 @@ export const StickyScroll = ({
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="div relative flex items-start px-4">
+      <div className="div relative flex items-start px-4 ">
         <div className="max-w-2xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
@@ -114,9 +115,9 @@ export const StickyScroll = ({
 </Card>
 
                 {item.title} {
-                  content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer">Preview</Button></a></>):(<><Dialog>
+                  content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer" variant={"outline"} size={"sm"}><View/></Button></a></>):(<><Dialog>
   <DialogTrigger>
-    <Button className="cursor-pointer">Preview</Button>
+    <Button className="cursor-pointer" variant={"outline"} size={"sm"}><View/></Button>
   </DialogTrigger>
   <DialogContentFull >
     <DialogHeader className="p-5">
