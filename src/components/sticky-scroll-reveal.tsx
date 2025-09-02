@@ -108,7 +108,12 @@ export const StickyScroll = ({
               bg-gradient-to-t from-accent/70 to-transparent
               opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
               
-                {
+                
+                  </div>
+  </CardContent>
+</Card>
+
+                {item.title} {
                   content[activeCard].deployed?(<><a href={content[activeCard].preview} target="blank"> <Button className="cursor-pointer">Preview</Button></a></>):(<><Dialog>
   <DialogTrigger>
     <Button className="cursor-pointer">Preview</Button>
@@ -128,7 +133,7 @@ export const StickyScroll = ({
         <a href={data.image} target="_blank" rel="noopener noreferrer">
           <img src={data.image} alt={data.description} className="w-full h-auto object-cover" />
 
-          <div className="absolute inset-0  bg-gradient-to-t from-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+          <div className="text-xs md:text-base absolute inset-0  bg-gradient-to-t from-accent/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
             <span className="font-bold text-2xl text-white text-center">
               {data.description}
             </span>
@@ -144,11 +149,6 @@ export const StickyScroll = ({
   </DialogContentFull>
 </Dialog></>)
                 }
-                  </div>
-  </CardContent>
-</Card>
-
-                {item.title}
               </motion.h2>
               <motion.div
                 initial={{

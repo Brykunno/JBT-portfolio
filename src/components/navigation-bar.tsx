@@ -44,7 +44,7 @@ function NavigationBar() {
   ]
 
   return (
-    <nav className={`flex p-3  w-full fixed top-0 transition-all duration-300 ease-in z-50 ${scrolled?"border-b-1 bg-background shadow-lg shadow-accent ":""}`}>
+    <nav className={`max-w-screen flex p-3  w-full fixed top-0 transition-all duration-300 ease-in z-50 ${scrolled?"border-b-1 bg-background shadow-lg shadow-accent ":""}`}>
    
   <div className='items-center flex flex-1 justify-center md:flex-[.20] 
      '>

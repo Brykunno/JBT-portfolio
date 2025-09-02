@@ -108,7 +108,7 @@ function About() {
             <CardTitle className='text-lg'>Hey, I'm John Bryan</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-sm md:text-lg text-muted-foreground">
               Aspiring Junior Web Developer with a strong foundation in full-stack development using modern technologies such as PHP, Laravel, React.js, and Django REST Framework. Proficient in building scalable RESTful APIs, designing responsive UIs, and implementing secure authentication systems using JWT. Eager to apply clean code principles, optimize performance, and contribute to collaborative agile development environments that prioritize maintainability and user experience.
             </p>
           </CardContent>
@@ -126,7 +126,7 @@ function About() {
       }
     `}</style>
     <div
-      className="relative overflow-hidden max-w-7xl p-4 group [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+      className="hidden md:block relative overflow-hidden max-w-7xl p-4 group [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
     >
       <div
         className="flex gap-5 w-full flex-nowrap"
@@ -152,6 +152,34 @@ function About() {
         ))}
       </div>
     </div>
+
+
+<div className="md:hidden max-w-full mb-10">
+  <div className="flex flex-wrap gap-4 justify-center">
+    {[...logos].map((item, index) => (
+      <Tooltip key={`${item.name}-${index}`}>
+        <TooltipTrigger>
+          <Card className="flex-1 flex-shrink-0 w-24 sm:w-28 p-4 cursor-pointer hover:translate-y-[-3px] hover:shadow-2xl shadow-accent-foreground hover:ring-1 transition ease-in duration-200">
+            <CardContent className="p-0 flex justify-center items-center">
+              <img
+                src={item.logo}
+                alt={item.name}
+                className="h-8 w-8 sm:h-12 sm:w-12"
+              />
+            </CardContent>
+          </Card>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{item.name}</p>
+        </TooltipContent>
+      </Tooltip>
+    ))}
+  </div>
+</div>
+
+
+
+    
 
 
 </motion.div>

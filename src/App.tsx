@@ -55,43 +55,41 @@ page:<Contact/>
 
 
   return (
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-          
-   
-<div>
-<Spotlight></Spotlight>
-  <NavigationBar/>
-
-  {
-    sections.map((item)=>{
-      return(
-        <div key={item.id} className='flex items-center h-lvh  justify-center ' id={item.id}>
-{item.page}
-</div>
-      )
-    })
-  }
-
-<AnimatePresence>
-  {scrolled? 
-<motion.div key="box" 
-initial={{ opacity: 0, y:80 }}
-            animate={{ opacity: 1, y:0 }}
-            transition={{
-                duration: 0.4,
-                
-            }}
-exit={{ opacity: 0 }} className={`${scrolled?"show":"hidden"} bg-chart-4 fixed right-10 bottom-10 rounded-[50%] transition-all duration-300 ease-in `} >
-  <a href="#hero" ><ArrowUp size={50}/></a>
-</motion.div> : null}
-</AnimatePresence>
-
-
-
-</div>
- <Toaster/>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" >
+      <div className="min-h-screen max-w-screen flex flex-col bg-background">
+        <Spotlight />
+        <NavigationBar />
+        <main className="flex-1 w-full flex flex-col gap-8 px-2 sm:px-4 md:px-8 lg:px-16 mx-auto max-w-screen">
+          {sections.map((item) => (
+            <section
+              key={item.id}
+              id={item.id}
+              className="flex flex-col items-center justify-center min-h-[80vh] py-8 sm:py-12 md:py-16 max-w-screen"
+            >
+              {item.page}
+            </section>
+          ))}
+        </main>
+        <AnimatePresence>
+          {scrolled ? (
+            <motion.div
+              key="box"
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0 }}
+              className="bg-chart-4 fixed right-11 md:right-4 bottom-4 rounded-full transition-all duration-300 ease-in shadow-lg z-50"
+            >
+              <a href="#hero">
+                <ArrowUp size={36} />
+              </a>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+        <Toaster />
+      </div>
     </ThemeProvider>
-  )
+  );
 }
 
 export default App
